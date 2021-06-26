@@ -21,3 +21,38 @@ app.get("/", (req, res) => {
         title: "Maytrix Cafe | Home",
     });
 });
+
+app.get("/menu", (req, res) => {
+    res.render("menu", {
+        title: "Maytrix Cafe | Menu",
+    });
+});
+
+app.get("/about", (req, res) => {
+    res.render("aboutus", {
+        title: "Maytrix Cafe | About Us",
+    });
+});
+
+app.get("/contact", (req, res) => {
+    res.render("contactus", {
+        title: "Maytrix Cafe | Contact Us",
+    });
+});
+
+app.get("/signin", (req, res) => {
+    res.render("signin", {
+        title: "Maytrix Cafe | Log In",
+    });
+});
+
+app.get("/signup", (req, res) => {
+    res.render("signup", {
+        title: "Maytrix Cafe | Sign Up",
+    });
+});
+
+
+app.listen(port, function() {
+    console.log("Server started on port 3000!");
+});

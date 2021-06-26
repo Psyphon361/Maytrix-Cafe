@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html id="preview-page" lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <title><%= title %></title>
+
+        <!-- Google Fonts -->
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+        />
+
+        <!-- Custom Styles -->
+        <link rel="stylesheet" href="css/styles.css" />
+
+        <!-- Fontawesome CDN -->
+        <script
+            src="https://kit.fontawesome.com/c622614d7c.js"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+
+    <body style="background: -webkit-linear-gradient(left, #3931af, #00c6ff)">
+        <header>
+            <nav
+                style="background-color: #1d1919"
+                class="navbar navbar-expand-md navbar-dark"
+            >
+                <a class="navbar-brand mx-md-5 px-md-5 pt-2" href="#">
+                    <img width="60px" src="images/logo.png" alt="" />
+                    <img
+                        class="ml-md-2"
+                        width="230px"
+                        src="images/cafe.png"
+                        alt="cafe-logo"
+                /></a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div
+                    class="collapse navbar-collapse pl-md-5"
+                    id="navbarCollapse"
+                >
+                    <ul class="navbar-nav mr-auto">
+                        <li
+                            style="font-size: 21px"
+                            class="nav-item active pr-md-2 mx-3"
+                        >
+                            <a class="nav-link" href="#"
+                                >Home <span class="sr-only">(current)</span></a
+                            >
+                        </li>
+                        <li
+                            style="font-size: 21px"
+                            class="nav-item active px-md-2 mx-3"
+                        >
+                            <a class="nav-link" href="#"
+                                >Menu <span class="sr-only">(current)</span></a
+                            >
+                        </li>
+                        <li
+                            style="font-size: 21px"
+                            class="nav-item active px-md-2 mx-3"
+                        >
+                            <a class="nav-link" href="#"
+                                >About <span class="sr-only">(current)</span></a
+                            >
+                        </li>
+                        <li
+                            style="font-size: 21px"
+                            class="nav-item active px-md-2 mx-3"
+                        >
+                            <a class="nav-link" href="#"
+                                >Contact
+                                <span class="sr-only">(current)</span></a
+                            >
+                        </li>
+                    </ul>
+                    <div>
+                        <form class="form-inline mt-2 mt-md-0 pr-md-5 mr-md-5">
+                            <a
+                                style="text-decoration: none; font-size: 20px"
+                                class="pr-5 login"
+                                href="/signin"
+                                >Log in</a
+                            >
+                            <a
+                                style="text-decoration: none; font-size: 20px"
+                                class="pr-5 signup"
+                                href="/signup"
+                                >Sign up</a
+                            >
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-10 pl-md-5">
+                        <div class="profile-head">
+                            <h2>User Profile</h2>
+
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link active"
+                                        id="home-tab"
+                                        data-toggle="tab"
+                                        href="#home"
+                                        role="tab"
+                                        aria-controls="home"
+                                        aria-selected="true"
+                                        >About</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 py-md-0 py-2">
+                        <input
+                            type="submit"
+                            class="profile-edit-btn"
+                            name="btnAddMore"
+                            value="Edit Profile"
+                        />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 pt-md-4 py-md-0 py-3">
+                        <div class="profile-img">
+                            <img
+                                src="https://5.imimg.com/data5/WT/AL/MY-65537691/business-id-card-500x500.jpg"
+                                alt="id-card"
+                            />
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div
+                                class="tab-pane fade show active"
+                                id="home"
+                                role="tabpanel"
+                                aria-labelledby="home-tab"
+                            >
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Registration Id</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Kshiti123</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Employee Id</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>blablabla</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Full Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Kshiti Ghelani</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>kshitighelani@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Mobile No</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>123 456 7890</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Organisation Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Web Developer and Designer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <%- include("layouts/footer.ejs") %>
