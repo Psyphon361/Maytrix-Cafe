@@ -55,7 +55,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col pt-md-5 pt-1 px-md-5 mx-md-5">
-                        <form class="form-signin px-md-5">
+                        <form method="POST" class="form-signin px-md-5">
                             <div
                                 class="py-4 form-heading"
                                 style="text-align: center"
@@ -97,6 +97,7 @@
                                 id="username"
                                 type="text"
                                 class="form-control"
+                                name="username"
                                 required
                                 autofocus
                             />
@@ -110,6 +111,7 @@
                                 id="email"
                                 type="email"
                                 class="form-control"
+                                name="email"
                                 required
                             />
                             <label
@@ -122,6 +124,7 @@
                                 id="password"
                                 type="password"
                                 class="form-control"
+                                name="password"
                                 required
                             />
 
@@ -145,12 +148,13 @@
                                 </div>
                             </div>
 
-                            <a
+                            <button
                                 class="btn btn-lg btn-primary btn-block btn-signup-email"
                                 type="submit"
+                                value="submit"
                             >
                                 Sign up with Email
-                            </a>
+                            </button>
                         </form>
                     </div>
                 </div>
