@@ -71,7 +71,7 @@
 
                             <a
                                 class="btn btn-sm btn-primary btn-block btn-signup"
-                                href=""
+                                href="/google"
                             >
                             <i class="fab fa-google"></i>
                                 Sign up with Google
@@ -114,6 +114,13 @@
                                 name="email"
                                 required
                             />
+
+                            <% if(email_flag === true) { %>
+                                <% console.log("Entering"); %>
+                                <h6 style="font-size: 14px;">Email already used</h6>
+                            <% } %>
+                                
+
                             <label
                                 style="padding-top: 15px"
                                 class="input-label"

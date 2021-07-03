@@ -2,14 +2,16 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+var findOrCreate = require("mongoose-findorcreate");
 
 const userSchema = new mongoose.Schema(
     {
         username: {
             type: String,
-            required: true,
-            unique: true,
+            // required: true,
+            unique: false,
             trim: true,
+            default: "NONAME"
         },
 
         email: {
@@ -27,9 +29,10 @@ const userSchema = new mongoose.Schema(
 
         password: {
             type: String,
-            required: true,
+            // required: true,
             trim: true,
             minlength: 6,
+            default: "NOPASS",
             validate(value) {
                 if (value.toLowerCase().includes("password"))
                     throw new Error(
@@ -98,7 +101,6 @@ userSchema.methods.generateAuthToken = async function () {
 
     user.tokens = user.tokens.concat({ token });
     await user.save();
-    
 
     return token;
 };
@@ -129,6 +131,8 @@ userSchema.pre("save", async function (next) {
 
     next();
 });
+
+userSchema.plugin(findOrCreate);
 
 const User = mongoose.model("User", userSchema);
 
