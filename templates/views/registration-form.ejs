@@ -68,7 +68,9 @@
                 <div class="col-md-3 register-left pt-lg-5 mt-lg-5">
                     <i class="fas fa-4x fa-hamburger"></i>
                     <h3>Welcome</h3>
-                    <p style="font-weight: 400;">You are 30 seconds away from feeling the best taste!</p>
+                    <p style="font-weight: 400">
+                        You are 30 seconds away from feeling the best taste!
+                    </p>
                 </div>
                 <div class="col-md-9 register-right">
                     <div class="tab-content" id="myTabContent">
@@ -81,78 +83,91 @@
                             <h3 class="register-heading">
                                 Register as an Employee
                             </h3>
-                            <div class="row register-form">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="First Name *"
-                                            value=""
-                                        />
+
+                            <form method="POST" action="/register">
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="First Name *"
+                                                name="fname"
+                                                value=""
+                                                required
+                                            />
+                                        </div>
+                                        <div class="form-group">
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="Last Name *"
+                                                name="lname"
+                                                value=""
+                                                required
+                                            />
+                                        </div>
+                                        <div class="form-group">
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="Organisation Name *"
+                                                name="org_name"
+                                                value=""
+                                                required
+                                            />
+                                        </div>
+                                        <div class="form-group">
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="Employee ID No. *"
+                                                name="empID"
+                                                value=""
+                                                required
+                                            />
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="Last Name *"
-                                            value=""
-                                        />
-                                    </div>
-                                    <div class="form-group">
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="Organisation Name *"
-                                            value=""
-                                        />
-                                    </div>
-                                    <div class="form-group">
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="Employee ID No. *"
-                                            value=""
-                                        />
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input
+                                                disabled
+                                                class="form-control"
+                                                value="static-email"
+                                            />
+                                        </div>
+                                        <div class="form-group">
+                                            <input
+                                                type="text"
+                                                minlength="10"
+                                                maxlength="10"
+                                                name="phone"
+                                                class="form-control"
+                                                placeholder="Mobile No. *"
+                                                value=""
+                                                required
+                                            />
+                                        </div>
+
+                                        <div class="form-group files">
+                                            <label>Upload ID Card * </label>
+                                            <input
+                                                type="file"
+                                                class="form-control pl-4"
+                                                multiple=""
+                                            />
+                                        </div>
+
+                                        <button
+                                            class="btnRegister"
+                                            type="submit"
+                                            value="submit"
+                                        >
+                                            Register
+                                        </button>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input
-                                            type="email"
-                                            class="form-control"
-                                            placeholder="Email *"
-                                            value=""
-                                        />
-                                    </div>
-                                    <div class="form-group">
-                                        <input
-                                            type="text"
-                                            minlength="10"
-                                            maxlength="10"
-                                            name="txtEmpPhone"
-                                            class="form-control"
-                                            placeholder="Mobile No. *"
-                                            value=""
-                                        />
-                                    </div>
-
-                                    <div class="form-group files">
-                                        <label>Upload ID Card * </label>
-                                        <input
-                                            type="file"
-                                            class="form-control pl-4"
-                                            multiple=""
-                                        />
-                                    </div>
-
-                                    <input
-                                        type="submit"
-                                        class="btnRegister"
-                                        value="Register"
-                                    />
-                                </div>
-                            </div>
+                            </form>
                         </div>
                         <div
                             class="tab-pane fade show"
