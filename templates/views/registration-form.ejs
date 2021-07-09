@@ -84,7 +84,7 @@
                                 Register as an Employee
                             </h3>
 
-                            <form method="POST" action="/register">
+                            <form enctype="multipart/form-data" method="POST" action="/register">
                                 <div class="row register-form">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -119,7 +119,7 @@
                                         </div>
                                         <div class="form-group">
                                             <input
-                                                type="text"
+                                                type="number"
                                                 class="form-control"
                                                 placeholder="Employee ID No. *"
                                                 name="empID"
@@ -133,7 +133,8 @@
                                             <input
                                                 disabled
                                                 class="form-control"
-                                                value= <%= email %>
+                                                value="<%= email %>"
+                                             
                                             />
                                         </div>
                                         <div class="form-group">
@@ -150,13 +151,23 @@
                                         </div>
 
                                         <div class="form-group files">
-                                            <label>Upload ID Card * </label>
+                                            <label>Upload ID Card (png/jpg/jpeg) * </label>
                                             <input
                                                 type="file"
-                                                class="form-control pl-4"
-                                                multiple=""
+                                                class="
+                                                    form-control
+                                                    pl-4
+                                                "
+                                                name="id_card"
+                                                required
                                             />
                                         </div>
+
+                                        <% if(shared_data.valid_file_type === false) { %>
+                                            <h6 style="font-size: 14px;">Allowed file formats: JPG, JPEG and PNG</h6>
+                                        <% } %>
+
+                    
 
                                         <button
                                             class="btnRegister"

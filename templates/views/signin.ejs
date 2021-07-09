@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -57,7 +59,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col pt-md-5 pt-1 px-md-5 mx-md-5">
-                        <form method="POST" action="/signin" class="form-signin px-md-5">
+                        <form method="POST" class="form-signin px-md-5">
                             <div
                                 class="py-4 form-heading"
                                 style="text-align: center"
@@ -91,10 +93,10 @@
                                     >
                                         <a
                                             class="btn btn-sm btn-primary btn-block btn-signin"
-                                            href=""
+                                            href="/github"
                                         >
-                                            <i class="fab fa-twitter"></i>
-                                            Twitter
+                                            <i class="fab fa-github"></i>
+                                            Github
                                         </a>
                                     </div>
                                 </div>
@@ -103,18 +105,17 @@
                             <div class="container">
                                 <hr
                                     class="hr-text pb-lg-0 pb-2"
-                                    data-content="OR"
                                 />
                             </div>
 
-                            <label class="input-label" for="username"
-                                >Email address or Username</label
+                            <label class="input-label" for="email"
+                                >Email address</label
                             >
                             <input
-                                id="username"
-                                type="text"
+                                id="email"
+                                type="email"
                                 class="form-control"
-                                name="username"
+                                name="email"
                                 required
                                 autofocus
                             />
@@ -133,7 +134,9 @@
                                 required
                             />
 
-                            <!-- <input type="submit" value="submit"> -->
+                            <% if(shared_data.valid_user === false) { %>
+                                <h6 style="font-size: 14px;">Invalid Credentials. Try Again.</h6>
+                            <% } %>
 
                             <button
                                 class="btn btn-lg btn-primary btn-block btn-signup-email mt-5"

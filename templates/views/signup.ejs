@@ -79,11 +79,11 @@
 
                             <a
                                 class="btn btn-sm btn-primary btn-block btn-signup"
-                                href=""
+                                href="/github"
                             >
-                                <i class="fab fa-twitter"></i>
+                                <i class="fab fa-github"></i>
 
-                                Sign up with Twitter
+                                Sign up with Github
                             </a>
 
                             <div class="container">
@@ -115,8 +115,7 @@
                                 required
                             />
 
-                            <% if(email_flag === true) { %>
-                                <% console.log("Entering"); %>
+                            <% if(shared_data.email_flag === true) { %>
                                 <h6 style="font-size: 14px;">Email already used</h6>
                             <% } %>
                                 
@@ -135,22 +134,26 @@
                                 required
                             />
 
+                            <% if(shared_data.strong_password === false) { %>
+                                <h6 style="font-size: 14px;">Please choose a strong password!</h6>
+                            <% } %>
+
                             <div class="container-fluid password-check">
-                                <div class="row">
-                                    <div class="col-md-6 col-12">
-                                        • 6 or more characters
+                                <div class="row py-1">
+                                    <div class="col-md-4 col-12">
+                                        • 6+ characters
                                     </div>
-                                    <div class="col-md-6 col-12">
-                                        • One letter
+                                    <div class="col-md-8 col-12">
+                                        • One Upper & Lowercase 
                                     </div>
                                 </div>
 
-                                <div class="row pb-4">
-                                    <div class="col-md-6 col-12">
+                                <div class="row pb-4 py-1">
+                                    <div class="col-md-4 col-12">
                                         • One number
                                     </div>
-                                    <div class="col-md-6 col-12">
-                                        • One special character
+                                    <div class="col-md-8 col-12">
+                                        • Special characters (@$!%*?&)
                                     </div>
                                 </div>
                             </div>

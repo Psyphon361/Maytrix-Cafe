@@ -565,7 +565,7 @@ h3 {
     display: inline-block;
 }
 
-.filter-button-group button {
+.filter-button-group a {
     color: #333;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -578,7 +578,7 @@ h3 {
     border-radius: 4px;
 }
 
-.filter-button-group button.active {
+.filter-button-group a.active {
     background: #ff7171;
     color: #fff;
     box-shadow: 2px 20px 45px 5px rgba(0, 0, 0, 0.2);

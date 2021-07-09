@@ -4,14 +4,15 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 var findOrCreate = require("mongoose-findorcreate");
 
+const shared_data = require("../shared-data/shared-vars");
+
 const userSchema = new mongoose.Schema(
     {
         username: {
             type: String,
-            // required: true,
             unique: false,
             trim: true,
-            default: "NONAME"
+            default: "NONAME",
         },
 
         email: {
@@ -29,16 +30,9 @@ const userSchema = new mongoose.Schema(
 
         password: {
             type: String,
-            // required: true,
             trim: true,
             minlength: 6,
             default: "NOPASS",
-            validate(value) {
-                if (value.toLowerCase().includes("password"))
-                    throw new Error(
-                        "Password must not include the string password"
-                    );
-            },
         },
 
         fname: {
@@ -79,6 +73,12 @@ const userSchema = new mongoose.Schema(
             required: true,
         },
 
+        id_card: {
+            type: String,
+            required: true,
+            default: "IDCARD",
+        },
+
         tokens: [
             {
                 token: {
@@ -109,15 +109,20 @@ userSchema.statics.findByCredentials = async (email, password) => {
     const user = await User.findOne({ email });
 
     if (!user) {
-        throw new Error("Unable to login!");
+        shared_data.valid_user = false;
+        return undefined;
+        // throw new Error("Unable to login!");
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
-        throw new Error("Unable to login!");
+        shared_data.valid_user = false;
+        return undefined;
+        // throw new Error("Unable to login!");
     }
 
+    shared_data.valid_user = true;
     return user;
 };
 

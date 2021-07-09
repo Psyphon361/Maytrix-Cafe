@@ -7,7 +7,7 @@ const auth = async (req, res, next) => {
 
         if(token == null) return res.sendStatus(401);
 
-        const decoded = jwt.verify(token, "psyphon");
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
         const user = await User.findOne({
             _id: decoded._id,
