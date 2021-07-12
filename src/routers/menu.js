@@ -1,7 +1,7 @@
 const express = require("express");
 const router = new express.Router();
 const Menu = require("../models/menu");
-const auth = require("../middleware/auth");
+const shared_data = require("../shared-data/shared-vars");
 
 router.get("/menu/:type", async (req, res) => {
     var food_type = req.params.type;
@@ -15,6 +15,7 @@ router.get("/menu/:type", async (req, res) => {
     res.render("menu", {
         title,
         foods,
+        shared_data,
     });
 });
 

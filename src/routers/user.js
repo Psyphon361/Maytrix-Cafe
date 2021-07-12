@@ -77,25 +77,21 @@ router.get("/", async (req, res) => {
 
     res.render("home", {
         title: "Maytrix Cafe | Home",
-        shared_data: shared_data,
-    });
-});
-
-router.get("/menu", (req, res) => {
-    res.render("menu", {
-        title: "Maytrix Cafe | Menu",
+        shared_data,
     });
 });
 
 router.get("/about", (req, res) => {
     res.render("aboutus", {
         title: "Maytrix Cafe | About Us",
+        shared_data,
     });
 });
 
 router.get("/contact", (req, res) => {
     res.render("contactus", {
         title: "Maytrix Cafe | Contact Us",
+        shared_data,
     });
 });
 
@@ -105,7 +101,7 @@ router.get("/signin", (req, res) => {
     } else {
         res.render("signin", {
             title: "Maytrix Cafe | Log In",
-            shared_data: shared_data,
+            shared_data,
         });
     }
 });
@@ -124,7 +120,7 @@ router.post("/signin", async (req, res) => {
 
             res.cookie("jwt", token, {
                 httpOnly: true,
-                secure: false,
+                secure: false,       // !!!!!------ MAKE IT SECURE BEFORE HOSTING --------!!!!!!
             });
 
             shared_data.user_is_authenticated = true;
@@ -142,7 +138,7 @@ router.get("/signup", (req, res) => {
     } else {
         res.render("signup", {
             title: "Maytrix Cafe | Sign Up",
-            shared_data: shared_data,
+            shared_data,
         });
     }
 });
@@ -150,7 +146,8 @@ router.get("/signup", (req, res) => {
 router.post("/signup", async (req, res) => {
     shared_data.email_flag = false;
 
-    const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+    const re =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
 
     if (!re.test(req.body.password)) {
         shared_data.strong_password = false;
@@ -307,23 +304,8 @@ router.get("/logout", auth, async (req, res) => {
 
         res.redirect("/");
     } catch (e) {
-        res.stautus(500).send();
+        res.status(500).send();
     }
 });
-
-// // PASSWORD CHECK
-
-// function checkPwd(str) {
-//     if (str.length < 6) {
-//         return "too_short";
-//     } else if (str.search(/\d/) == -1) {
-//         return "no_num";
-//     } else if (str.search(/[a-zA-Z]/) == -1) {
-//         return "no_letter";
-//     } else if (str.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+]/) != -1) {
-//         return "bad_char";
-//     }
-//     return "ok";
-// }
 
 module.exports = router;

@@ -3,6 +3,7 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 var findOrCreate = require("mongoose-findorcreate");
+const Order = require("../models/order");
 
 const shared_data = require("../shared-data/shared-vars");
 
@@ -85,6 +86,7 @@ const userSchema = new mongoose.Schema(
                     type: String,
                     required: true,
                 },
+                
             },
         ],
     },
@@ -93,6 +95,12 @@ const userSchema = new mongoose.Schema(
         timestamps: true,
     }
 );
+
+userSchema.virtual("orders", {
+    ref: "Order",
+    localField: "_id",
+    foreignField: "customer",
+});
 
 // GENERATE AUTH TOKEN USING JWT
 userSchema.methods.generateAuthToken = async function () {

@@ -8,6 +8,7 @@ const app = express();
 const passport = require("passport");
 const userRouter = require("./routers/user");
 const menuRouter = require("./routers/menu");
+const orderRouter = require("./routers/order");
 
 app.use(express.json()); // for parsing application/json
 app.use(cookieParser());
@@ -42,6 +43,7 @@ app.use(express.static(publicDirectoryPath));
 
 app.use(userRouter);
 app.use(menuRouter);
+app.use(orderRouter);
 
 app.listen(port, function () {
     console.log("Server started on port 3000!");

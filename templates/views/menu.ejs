@@ -35,8 +35,7 @@
                             class="menu-btn my-2"
                             >Coffee</a
                         >
-                        <% } %>
-                        <% if(foods[0].food_type === "Tea") { %>
+                        <% } %> <% if(foods[0].food_type === "Tea") { %>
                         <a
                             id="tea"
                             style="text-decoration: none"
@@ -52,9 +51,7 @@
                             class="menu-btn my-2"
                             >Tea</a
                         >
-                        <% } %>
-
-                        <% if(foods[0].food_type === "Smoothies") { %>
+                        <% } %> <% if(foods[0].food_type === "Smoothies") { %>
                         <a
                             id="smoothies"
                             style="text-decoration: none"
@@ -70,9 +67,7 @@
                             class="menu-btn my-2"
                             >Smoothies</a
                         >
-                        <% } %>
-
-                        <% if(foods[0].food_type === "Snacks") { %>
+                        <% } %> <% if(foods[0].food_type === "Snacks") { %>
                         <a
                             id="snacks"
                             style="text-decoration: none"
@@ -81,16 +76,14 @@
                             >Snacks</a
                         >
                         <% } else {%>
-                            <a
+                        <a
                             id="snacks"
                             style="text-decoration: none"
                             href="/menu/snacks"
                             class="menu-btn my-2"
                             >Snacks</a
                         >
-                        <% } %>
-
-                        <% if(foods[0].food_type === "Indian") { %>
+                        <% } %> <% if(foods[0].food_type === "Indian") { %>
                         <a
                             id="indian"
                             style="text-decoration: none"
@@ -99,7 +92,7 @@
                             >Indian</a
                         >
                         <% } else {%>
-                            <a
+                        <a
                             id="indian"
                             style="text-decoration: none"
                             href="/menu/indian"
@@ -119,7 +112,7 @@
                     <img
                         width="200px"
                         class="card-img-top"
-                        src="/images/menu/coffee/cafeLatte.jpeg"
+                        src="/images/menu/<%= foods[i].food_type %>/<%= foods[i].food_name %>.jpg"
                         alt="Card image cap"
                     />
                     <h5
@@ -129,47 +122,59 @@
                         <%= foods[i].food_name %>
                     </h5>
                     <!-- </div> -->
-                    <ul class="list-group list-group-flush text-center">
-                        <li
-                            style="
-                                background-color: #ff7171;
-                                color: #fff;
-                                font-weight: 600;
-                            "
-                            class="list-group-item"
-                        >
-                            <span>₹<%= foods[i].food_price %>.00</span>
-                        </li>
-                        <li class="list-group-item">
-                            <select
-                                id="inputState"
-                                name="quantity"
-                                class="form-control input-field custom-select"
+                    <form method="POST" action="/add-to-cart/<%= foods[i].food_name %>">
+                        <ul class="list-group list-group-flush text-center">
+                            <li
+                                style="
+                                    background-color: #ff7171;
+                                    color: #fff;
+                                    font-weight: 600;
+                                "
+                                class="list-group-item"
                             >
-                                <option
-                                    class="default-text"
-                                    disabled=""
-                                    selected=""
-                                    hidden=""
+                                <span>₹<%= foods[i].food_price %>.00</span>
+                            </li>
+                            <li class="list-group-item">
+                                <select
+                                    id="inputState"
+                                    name="quantity"
+                                    class="
+                                        form-control
+                                        input-field
+                                        custom-select
+                                    "
+                                    required
                                 >
-                                    Quantity
-                                </option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </li>
-                    </ul>
-                    <div class="card-body text-center">
-                        <a href="#" class="btn btn-primary order-btn"
-                            >Add to Cart</a
-                        >
-                        <a href="#" class="btn btn-primary order-btn"
-                            >Order Now</a
-                        >
-                    </div>
+                                    <option
+                                        class="default-text"
+                                        disabled=""
+                                        selected=""
+                                        hidden=""
+                                    >
+                                        Quantity
+                                    </option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </li>
+                        </ul>
+                        <div class="card-body text-center">
+                            <button
+                                href="/add-to-cart/<%= foods[i].food_name %>"
+                                class="btn btn-primary order-btn"
+                                value="submit"
+                                >Add to Cart</button
+                            >
+                            <a
+                                href="/order-now/<%= foods[i].food_name %>"
+                                class="btn btn-primary order-btn"
+                                >Order Now</a
+                            >
+                        </div>
+                    </form>
                 </div>
             </div>
 

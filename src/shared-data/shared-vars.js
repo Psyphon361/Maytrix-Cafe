@@ -4,6 +4,7 @@ var shared_data = {
     valid_user: true,
     valid_file_type: true,
     strong_password: true,
+    order_placed: false,
 };
 
 module.exports = shared_data;
