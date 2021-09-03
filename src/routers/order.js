@@ -98,8 +98,8 @@ router.get("/remove/:item", async (req, res) => {
 
     await order.save();
 
-    if(order.items.length === 0) {
-        Order.findOneAndDelete({_id: order._id}).exec();
+    if (order.items.length === 0) {
+        Order.findOneAndDelete({ _id: order._id }).exec();
     }
 
     res.redirect("/cart");
@@ -122,6 +122,13 @@ router.get("/cart", async (req, res) => {
             cart,
         });
     }
+});
+
+router.get("/summary", async (req, res) => {
+    res.render("payment", {
+        title: "Maytrix | Order Summary",
+        shared_data,
+    });
 });
 
 module.exports = router;
