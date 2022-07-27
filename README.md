@@ -1,5 +1,8 @@
 # Instructions:
 
+## Live Demo:
+    http://maytrix-cafe.herokuapp.com/
+
 ## Prerequisites:
     1. NodeJS should be installed on the system.
     2. An active internet connection.
